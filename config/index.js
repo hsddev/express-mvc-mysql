@@ -10,9 +10,9 @@ let environments = {};
 environments.staging = {
     db: {
         host: "localhost",
-        user: "hsddev",
+        user: "admin",
         password: "test@123",
-        database: "jashrb",
+        database: "jas7hrb",
         dialect: "mysql",
     },
     httpPort: 3000,
@@ -26,9 +26,9 @@ environments.staging = {
 environments.production = {
     db: {
         host: "localhost",
-        user: "DB_User",
-        password: "DB_Pass",
-        database: "jashrb",
+        user: "admin",
+        password: "test@123",
+        database: "jas7hrb",
         dialect: "mysql",
     },
     httpPort: process.env.PORT,
