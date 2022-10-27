@@ -7,5 +7,17 @@ const getError404 = (req, res, next) => {
     next(error);
 };
 
+// Get error msg
+const getErrorMsg = (error, req, res, next) => {
+    const errorCode = error.status || 500;
+    const errorType = errorCode === 404 ? "errors/notFound" : "errors/unknown";
+
+    if (errorCode === 404) {
+        if (error.url) console.log("Error: Not Found: %s", error.url);
+    } else {
+        console.log(error);
+    }
+};
+
 // Export module
-module.exports = { getError404 };
+module.exports = { getError404, getErrorMsg };

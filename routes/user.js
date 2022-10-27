@@ -8,6 +8,7 @@ const {
     registerPost,
 } = require("../controllers/userController");
 
+// Routes path
 router.get("/login", loginGet);
 router.post("/login", loginPost);
 router.get("/register", registerGet);

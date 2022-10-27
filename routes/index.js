@@ -11,8 +11,9 @@ const errors = require("../controllers/errorController");
 // Routes path
 router.use("/", userRoutes);
 
-// Error Handler and pages
+// Error Handlers and pages
 router.use(errors.getError404);
+router.use(errors.getErrorMsg);
 
 // Export module
 module.exports = router;
