@@ -5,8 +5,14 @@ const session = require("express-session");
 const SessionStore = require("express-mysql-session");
 const config = require("./config");
 const sequelize = require("./config/database");
+const routes = require("./routes/");
+const bodyParser = require("body-parser");
 
 const app = new express();
+
+// Body Parser
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,10 +33,9 @@ app.use(
 
 // Static folder
 app.use("/public", express.static("public"));
+
 // Simple route
-app.get("/", (req, res) => {
-    res.render("home");
-});
+app.use("/", routes);
 
 sequelize
     .sync({ logging: false })
